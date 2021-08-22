@@ -1,0 +1,358 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2AB559FB26D1E4D900095F95 /* WizardryMouseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB559FA26D1E4D900095F95 /* WizardryMouseApp.swift */; };
+		2AB559FF26D1E4DA00095F95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AB559FE26D1E4DA00095F95 /* Assets.xcassets */; };
+		2AB55A0226D1E4DA00095F95 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AB55A0126D1E4DA00095F95 /* Preview Assets.xcassets */; };
+		2AB55A0B26D1E52B00095F95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB55A0A26D1E52B00095F95 /* AppDelegate.swift */; };
+		2AB55A0D26D1E56200095F95 /* StatusItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB55A0C26D1E56200095F95 /* StatusItemView.swift */; };
+		2AB55A0F26D1E61300095F95 /* BatteryLevelReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB55A0E26D1E61300095F95 /* BatteryLevelReader.swift */; };
+		2AB55A1126D1E68B00095F95 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB55A1026D1E68B00095F95 /* AppSettings.swift */; };
+		2AB55A1326D1E73B00095F95 /* MouseStatusMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB55A1226D1E73B00095F95 /* MouseStatusMenu.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2AB559F726D1E4D900095F95 /* WizardryMouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WizardryMouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AB559FA26D1E4D900095F95 /* WizardryMouseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardryMouseApp.swift; sourceTree = "<group>"; };
+		2AB559FE26D1E4DA00095F95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2AB55A0126D1E4DA00095F95 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2AB55A0326D1E4DA00095F95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AB55A0426D1E4DA00095F95 /* WizardryMouse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WizardryMouse.entitlements; sourceTree = "<group>"; };
+		2AB55A0A26D1E52B00095F95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2AB55A0C26D1E56200095F95 /* StatusItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemView.swift; sourceTree = "<group>"; };
+		2AB55A0E26D1E61300095F95 /* BatteryLevelReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryLevelReader.swift; sourceTree = "<group>"; };
+		2AB55A1026D1E68B00095F95 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		2AB55A1226D1E73B00095F95 /* MouseStatusMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseStatusMenu.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2AB559F426D1E4D900095F95 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2AB559EE26D1E4D900095F95 = {
+			isa = PBXGroup;
+			children = (
+				2AB559F926D1E4D900095F95 /* WizardryMouse */,
+				2AB559F826D1E4D900095F95 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2AB559F826D1E4D900095F95 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2AB559F726D1E4D900095F95 /* WizardryMouse.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2AB559F926D1E4D900095F95 /* WizardryMouse */ = {
+			isa = PBXGroup;
+			children = (
+				2AB559FE26D1E4DA00095F95 /* Assets.xcassets */,
+				2AB55A0326D1E4DA00095F95 /* Info.plist */,
+				2AB55A0426D1E4DA00095F95 /* WizardryMouse.entitlements */,
+				2AB55A0026D1E4DA00095F95 /* Preview Content */,
+				2AB559FA26D1E4D900095F95 /* WizardryMouseApp.swift */,
+				2AB55A0A26D1E52B00095F95 /* AppDelegate.swift */,
+				2AB55A1026D1E68B00095F95 /* AppSettings.swift */,
+				2AB55A0C26D1E56200095F95 /* StatusItemView.swift */,
+				2AB55A0E26D1E61300095F95 /* BatteryLevelReader.swift */,
+				2AB55A1226D1E73B00095F95 /* MouseStatusMenu.swift */,
+			);
+			path = WizardryMouse;
+			sourceTree = "<group>";
+		};
+		2AB55A0026D1E4DA00095F95 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2AB55A0126D1E4DA00095F95 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2AB559F626D1E4D900095F95 /* WizardryMouse */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2AB55A0726D1E4DA00095F95 /* Build configuration list for PBXNativeTarget "WizardryMouse" */;
+			buildPhases = (
+				2AB559F326D1E4D900095F95 /* Sources */,
+				2AB559F426D1E4D900095F95 /* Frameworks */,
+				2AB559F526D1E4D900095F95 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WizardryMouse;
+			productName = WizardryMouse;
+			productReference = 2AB559F726D1E4D900095F95 /* WizardryMouse.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2AB559EF26D1E4D900095F95 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					2AB559F626D1E4D900095F95 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = 2AB559F226D1E4D900095F95 /* Build configuration list for PBXProject "WizardryMouse" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2AB559EE26D1E4D900095F95;
+			productRefGroup = 2AB559F826D1E4D900095F95 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2AB559F626D1E4D900095F95 /* WizardryMouse */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2AB559F526D1E4D900095F95 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AB55A0226D1E4DA00095F95 /* Preview Assets.xcassets in Resources */,
+				2AB559FF26D1E4DA00095F95 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2AB559F326D1E4D900095F95 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AB55A0B26D1E52B00095F95 /* AppDelegate.swift in Sources */,
+				2AB55A1126D1E68B00095F95 /* AppSettings.swift in Sources */,
+				2AB55A0D26D1E56200095F95 /* StatusItemView.swift in Sources */,
+				2AB559FB26D1E4D900095F95 /* WizardryMouseApp.swift in Sources */,
+				2AB55A0F26D1E61300095F95 /* BatteryLevelReader.swift in Sources */,
+				2AB55A1326D1E73B00095F95 /* MouseStatusMenu.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2AB55A0526D1E4DA00095F95 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2AB55A0626D1E4DA00095F95 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		2AB55A0826D1E4DA00095F95 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WizardryMouse/WizardryMouse.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"WizardryMouse/Preview Content\"";
+				DEVELOPMENT_TEAM = 62L732T8R5;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = WizardryMouse/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = net.qingbo.WizardryMouse;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		2AB55A0926D1E4DA00095F95 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WizardryMouse/WizardryMouse.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"WizardryMouse/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = WizardryMouse/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = net.qingbo.WizardryMouse;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2AB559F226D1E4D900095F95 /* Build configuration list for PBXProject "WizardryMouse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AB55A0526D1E4DA00095F95 /* Debug */,
+				2AB55A0626D1E4DA00095F95 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2AB55A0726D1E4DA00095F95 /* Build configuration list for PBXNativeTarget "WizardryMouse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AB55A0826D1E4DA00095F95 /* Debug */,
+				2AB55A0926D1E4DA00095F95 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2AB559EF26D1E4D900095F95 /* Project object */;
+}
