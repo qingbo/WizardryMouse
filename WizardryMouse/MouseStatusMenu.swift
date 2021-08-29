@@ -24,33 +24,26 @@ struct MouseStatusMenu: View {
 
         Divider()
 
-        ForEach(batteryStatus.bluetoothMice, id: \.self) { mouse in
+        ForEach(batteryStatus.bluetoothDevices, id: \.self) { device in
             Button(action: {}) {
-                let batteryLevel = batteryStatus.mouseBatteryLevel[mouse.addressString]
-                Image(systemName: "battery.\(mapBatteryLevel(level: batteryLevel))")
-
-                let percentage = batteryLevel == nil ? "?%" : "\(Int(batteryLevel! * 100))%"
-                Text("\(mouse.name) - \(percentage)")
+                Image(systemName: "battery.\(mapBatteryPercent(percent: device.batteryPercent))")
+                Text("\(device.product) - \(device.batteryPercent)%")
             }.disabled(true)
         }
-        if batteryStatus.bluetoothMice.count == 0 {
+        if batteryStatus.bluetoothDevices.count == 0 {
             Text("No Bluetooth mouse")
         }
     }
 
-    private func mapBatteryLevel(level: Double?) -> Int {
-        guard let level = level else {
-            return 0
-        }
-
-        switch level {
-        case 0.10..<0.35:
+    private func mapBatteryPercent(percent: Int) -> Int {
+        switch percent {
+        case 10..<35:
             return 25
-        case 0.35..<0.60:
+        case 35..<60:
             return 50
-        case 0.60..<0.85:
+        case 60..<85:
             return 75
-        case 0.85..<100:
+        case 85..<1000:
             return 100
         default:
             return 0

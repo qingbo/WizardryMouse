@@ -6,23 +6,21 @@
 //
 
 import Foundation
-import IOBluetooth
+import IOKit
 
 class BatteryLevelReader: NSObject, ObservableObject {
     static let shared = BatteryLevelReader()
 
     private static let timerIntervalSeconds = 60
-    private static let levelUpdateIntervalSeconds = 3600 // Update every hour.
+    private static let levelUpdateIntervalMinutes = 60 // Update every hour.
     private var timer: DispatchSourceTimer?
-    private var secondsSinceUpdate = levelUpdateIntervalSeconds // So that update will run on startup.
 
     private var plistDecoder = PropertyListDecoder()
 
-    @Published var bluetoothMice: [IOBluetoothDevice] = [] // List of connected mice.
-    @Published var mouseBatteryLevel: [String: Double] = [:] // Mapping of mouse address to battery level.
-    @Published var minBatteryLevel: Double? // Minimum battery level of all mice.
+    @Published var bluetoothDevices: [BluetoothDevice] = []
+    @Published var minBatteryPercent: Int? // Minimum battery level of all mice.
     @Published var updatedAt: Date?
-    @Published var timeSinceUpdate = "0 minutes"
+    @Published var timeSinceUpdate = "Checking..."
 
     override init() {
         super.init()
@@ -32,65 +30,99 @@ class BatteryLevelReader: NSObject, ObservableObject {
         timer!.schedule(deadline: .now(), repeating: .seconds(BatteryLevelReader.timerIntervalSeconds))
         timer!.setEventHandler { [weak self] in
             DispatchQueue.main.async {
-                self!.calculateMintues()
-                if self!.secondsSinceUpdate >= BatteryLevelReader.levelUpdateIntervalSeconds {
+                var minutes = self!.calculateMintues()
+                
+                if minutes == nil || minutes! >= BatteryLevelReader.levelUpdateIntervalMinutes {
                     self!.update()
-                    self!.secondsSinceUpdate = 0
-                } else {
-                    self!.secondsSinceUpdate += 60
+                    minutes = 0
+                }
+                
+                if minutes != nil {
+                    self!.updateTimeSinceUpdate(minutes!)
                 }
             }
         }
         timer!.resume()
     }
 
-    private func calculateMintues() {
+    private func calculateMintues() -> Int? {
         guard let updatedAt = updatedAt else {
-            return
+            return nil
         }
         let interval = Date().timeIntervalSinceReferenceDate - updatedAt.timeIntervalSinceReferenceDate
-        let minutes = Int(interval / 60)
+        return Int(interval / 60)
+    }
+    
+    private func updateTimeSinceUpdate(_ minutes: Int) {
         let unit = minutes == 1 ? "minute" : "minutes"
         timeSinceUpdate = "\(minutes) \(unit)"
     }
 
     private func update() {
-        bluetoothMice = []
-        // Get connected mice.
-        let pairdDevices = IOBluetoothDevice.pairedDevices() ?? []
-        for device in pairdDevices {
-            if let device = device as? IOBluetoothDevice {
-                if device.isConnected() && device.classOfDevice == 1408 {
-                    bluetoothMice.append(device)
-                }
-            }
+        bluetoothDevices = []
+        minBatteryPercent = nil
+        
+        var iter: io_iterator_t = 0
+        let ret = IOServiceGetMatchingServices(kIOMasterPortDefault,
+                                               IOServiceNameMatching("AppleDeviceManagementHIDEventService"),
+                                               &iter)
+        guard ret == KERN_SUCCESS else {
+            return
         }
-
-        // Read battery level information from plist
-        if let data = try? Data(contentsOf: URL(fileURLWithPath: "/Library/Preferences/com.apple.bluetooth.plist")) {
-            let bluetoothPlist = try? plistDecoder.decode(BluetoothPropertyList.self, from: data)
-
-            minBatteryLevel = nil
-            for mouse in bluetoothMice {
-                let address = mouse.addressString!
-                let batteryLevel = bluetoothPlist?.DeviceCache?[address]?.BatteryPercent
-                if batteryLevel == nil {
-                    continue
-                }
-                mouseBatteryLevel[address] = batteryLevel
-                if minBatteryLevel == nil || batteryLevel! < minBatteryLevel! {
-                    minBatteryLevel = batteryLevel
-                }
+        repeat {
+            let service = IOIteratorNext(iter)
+            guard service != 0 else {
+                break
             }
-        }
+            
+            // Get product name
+            let propProduct = IORegistryEntryCreateCFProperty(service,
+                                                              "Product" as CFString,
+                                                              kCFAllocatorDefault, 0)
+            let product = propProduct!.takeRetainedValue() as! String
+            guard product.hasPrefix("Magic Mouse") else {
+                continue
+            }
+            
+            // Get battery percent
+            let propBattery = IORegistryEntryCreateCFProperty(service,
+                                                              "BatteryPercent" as CFString,
+                                                              kCFAllocatorDefault, 0)
+            guard propBattery != nil else {
+                continue
+            }
+            let batteryPercent = propBattery?.takeRetainedValue() as! Int
+            
+            // Get serial number
+            let propSerialNumber = IORegistryEntryCreateCFProperty(service,
+                                                                   "SerialNumber" as CFString,
+                                                                   kCFAllocatorDefault, 0)
+            guard propSerialNumber != nil else {
+                continue
+            }
+            let serialNumber = propSerialNumber!.takeRetainedValue() as! String
+            
+            
+            if minBatteryPercent == nil || batteryPercent < minBatteryPercent! {
+                minBatteryPercent = batteryPercent
+            }
+            bluetoothDevices.append(BluetoothDevice(
+                product: product,
+                serialNumber: serialNumber,
+                batteryPercent: batteryPercent
+            ))
+        } while true
+        
         updatedAt = Date()
     }
 }
 
-struct DeviceBattery: Codable {
-    let BatteryPercent: Double?
-}
-
-struct BluetoothPropertyList: Codable {
-    let DeviceCache: [String: DeviceBattery]?
+struct BluetoothDevice: Identifiable, Hashable {
+    var id: String {
+        serialNumber
+    }
+    
+    let product: String
+    let serialNumber: String
+    let batteryPercent: Int
 }

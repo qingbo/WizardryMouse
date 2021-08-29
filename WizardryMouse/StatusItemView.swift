@@ -11,14 +11,14 @@ import CoreGraphics
 
 struct StatusItemView: View {
     @EnvironmentObject var batteryStatus: BatteryLevelReader
-    let threshold = 0.2
+    let threshold = 20
     var height: CGFloat
 
     var body: some View {
         ZStack {
             mouseBackground()
 
-            if batteryStatus.minBatteryLevel != nil {
+            if batteryStatus.minBatteryPercent != nil {
                 batteryLevel()
             } else {
                 Text("?")
@@ -31,7 +31,7 @@ struct StatusItemView: View {
     private func mouseBackground() -> some View {
         MagicMouse()
             .fill(
-                batteryStatus.minBatteryLevel == nil || batteryStatus.minBatteryLevel! > threshold ?
+                batteryStatus.minBatteryPercent == nil || batteryStatus.minBatteryPercent! > threshold ?
                 Color(.sRGB, white: 0.3, opacity: 0.4) : // Gray mouse when unkown or above threshold
                 Color(.sRGB, red: 255, green: 0, blue: 0, opacity: 0.4) // Red mouse when low battery level
             )
@@ -45,10 +45,10 @@ struct StatusItemView: View {
     private func batteryLevel() -> some View {
         HStack {
             Rectangle()
-                .fill(batteryStatus.minBatteryLevel! > threshold ? Color.black : Color.red)
+                .fill(batteryStatus.minBatteryPercent! > threshold ? Color.black : Color.red)
                 .frame(
                     // Width is calculated based on battery level
-                    width: height * 1.9 * CGFloat(batteryStatus.minBatteryLevel!),
+                    width: height * 1.9 * CGFloat(batteryStatus.minBatteryPercent!) / 100.0,
                     height: height,
                     alignment: .leading
                 )
