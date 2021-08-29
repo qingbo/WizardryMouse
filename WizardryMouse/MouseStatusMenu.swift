@@ -40,9 +40,17 @@ struct MouseStatusMenu: View {
         case 10..<35:
             return 25
         case 35..<60:
-            return 50
+            if #available(macOS 12, *) {
+                return 50
+            } else {
+                return 100
+            }
         case 60..<85:
-            return 75
+            if #available(macOS 12, *) {
+                return 75
+            } else {
+                return 100
+            }
         case 85..<1000:
             return 100
         default:
